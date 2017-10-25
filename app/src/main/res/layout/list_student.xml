@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:padding="8dp"
+    android:layout_height="match_parent"
+    android:id="@+id/list_item">
+
+    <TextView
+        android:id="@+id/tv_Name"
+        android:layout_height="50dp"
+        android:layout_width="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/iv_barcode"
+        android:layout_toLeftOf="@+id/iv_barcode"
+        android:layout_centerVertical="true" />
+
+    <ImageView
+        android:id="@+id/iv_barcode"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_toStartOf="@android:id/list"
+        android:layout_toLeftOf="@android:id/list"
+        android:contentDescription="barcode"
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/barcode" />
+
+</RelativeLayout>
