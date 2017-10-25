@@ -17,6 +17,8 @@ public class SampleData {
         addItem(new Student(null, "Reid Briley"));
         addItem(new Student(null, "Rob Graine"));
         addItem(new Student(null, "Brian Escalante"));
+        addItem(new Student(null, "Brandon Agles"));
+        addItem(new Student(null, "Andy Medina"));
 
         }
 
