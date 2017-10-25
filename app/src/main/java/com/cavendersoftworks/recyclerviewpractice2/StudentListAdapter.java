@@ -41,8 +41,15 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
         ImageView imView = (ImageView)convertView.findViewById(R.id.iv_barcode);
 
         Student student = mStudents.get(position);
-        tvName.setText(student.getName());
-        imView.setImageResource(R.drawable.barcode);
+        String studentName = student.getName();
+
+        tvName.setText(studentName);
+
+        try {
+            imView.setImageBitmap(generateQR(studentName));
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
 
         return convertView;
     }
@@ -58,14 +65,14 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
 
 
         try {
-            bitmatrix = new MultiFormatWriter().encode(qrEncode, BarcodeFormat.DATA_MATRIX.QR_CODE, 150, 150, null);
+            bitmatrix = new MultiFormatWriter().encode(qrEncode, BarcodeFormat.DATA_MATRIX.QR_CODE, 500, 500, null);
         } catch (IllegalArgumentException e) {
             return null;
         }
         bitMatrixWidth = bitmatrix.getWidth();
         bitMatrixHeight = bitmatrix.getHeight();
 
-        pixels = new int[bitMatrixHeight * bitMatrixWidth];
+        pixels = new int[bitMatrixWidth * bitMatrixHeight];
 
         for(int y = 0; y < bitMatrixHeight; y++) {
             int offset = y * bitMatrixWidth;
@@ -77,7 +84,7 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
         }
 
         bitmap = Bitmap.createBitmap(bitMatrixWidth, bitMatrixHeight, Bitmap.Config.ARGB_4444);
-        bitmap.setPixels(pixels, 0, 500, bitMatrixWidth, bitMatrixHeight, 150, 150);
+        bitmap.setPixels(pixels, 0, 500, 0, 0, bitMatrixWidth, bitMatrixHeight);
 
         return bitmap;
     }
