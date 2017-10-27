@@ -42,50 +42,10 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
 
         Student student = mStudents.get(position);
         String studentName = student.getName();
-
         tvName.setText(studentName);
-
-        try {
-            imView.setImageBitmap(generateQR(studentName));
-        } catch (WriterException e) {
-            e.printStackTrace();
-        }
 
         return convertView;
     }
 
-    public Bitmap generateQR(String qrEncode) throws WriterException {
-        Context context = this.getContext();
 
-        Bitmap bitmap = null;
-        BitMatrix bitmatrix = null;
-        int bitMatrixWidth;
-        int bitMatrixHeight;
-        int[] pixels;
-
-
-        try {
-            bitmatrix = new MultiFormatWriter().encode(qrEncode, BarcodeFormat.DATA_MATRIX.QR_CODE, 500, 500, null);
-        } catch (IllegalArgumentException e) {
-            return null;
-        }
-        bitMatrixWidth = bitmatrix.getWidth();
-        bitMatrixHeight = bitmatrix.getHeight();
-
-        pixels = new int[bitMatrixWidth * bitMatrixHeight];
-
-        for(int y = 0; y < bitMatrixHeight; y++) {
-            int offset = y * bitMatrixWidth;
-
-            for(int x = 0; x < bitMatrixWidth; x++) {
-                pixels[offset + x] = bitmatrix.get(x, y) ?  context.getResources().getColor(R.color.QRCodeBlackColor) : context.getResources().getColor(R.color.QRCodeWhiteColor);
-
-            }
-        }
-
-        bitmap = Bitmap.createBitmap(bitMatrixWidth, bitMatrixHeight, Bitmap.Config.ARGB_4444);
-        bitmap.setPixels(pixels, 0, 500, 0, 0, bitMatrixWidth, bitMatrixHeight);
-
-        return bitmap;
-    }
 }

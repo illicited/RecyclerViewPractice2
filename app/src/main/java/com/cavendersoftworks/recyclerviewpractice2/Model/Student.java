@@ -1,9 +1,5 @@
 package com.cavendersoftworks.recyclerviewpractice2.Model;
 
-/**
- * Created by illicit on 10/20/2017.
- */
-
 public class Student {
     private String itemId;
     private String name;
