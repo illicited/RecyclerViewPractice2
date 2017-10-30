@@ -3,6 +3,7 @@ package com.cavendersoftworks.recyclerviewpractice2;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
+import android.widget.ImageView;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
@@ -12,10 +13,12 @@ import com.google.zxing.common.BitMatrix;
 
 public class QRCodeGenerator extends AsyncTask<String, Void, Bitmap> {
 
+    private ImageView imv = null;
     private Context context = null;
 
-    public QRCodeGenerator(Context context) {
+    public QRCodeGenerator(Context context, ImageView imv) {
         this.context = context;
+        this.imv = imv;
     }
 
     @Override
@@ -52,5 +55,10 @@ public class QRCodeGenerator extends AsyncTask<String, Void, Bitmap> {
         bitmap.setPixels(pixels, 0, 500, 0, 0, bitMatrixWidth, bitMatrixHeight);
 
         return bitmap;
+    }
+
+    @Override
+    protected void onPostExecute(Bitmap bitmap) {
+        imv.setImageBitmap(bitmap);
     }
 }

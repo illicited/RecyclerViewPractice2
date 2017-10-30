@@ -1,31 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:padding="8dp"
     android:layout_height="match_parent"
     android:id="@+id/list_item">
 
+    <ImageView
+        android:id="@+id/imv_picture"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"/>
+
     <TextView
         android:id="@+id/tv_Name"
-        android:layout_height="50dp"
-        android:layout_width="100dp"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/iv_barcode"
-        android:layout_toLeftOf="@+id/iv_barcode"
-        android:layout_centerVertical="true" />
+        android:layout_height="42dp"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/imv_picture"
+        style="@style/Header"
+        android:text="Josh Cavender"/>
 
-    <ImageView
-        android:id="@+id/iv_barcode"
-        android:layout_width="50dp"
-        android:layout_height="100dp"
-        android:layout_alignParentEnd="true"
-        android:layout_toStartOf="@android:id/list"
-        android:layout_toLeftOf="@android:id/list"
-        android:contentDescription="barcode"
-        android:layout_centerVertical="true"
-        app:srcCompat="@drawable/barcode" />
+    <TextView
+        android:id="@+id/tv_Company"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginLeft="8dp"
+        android:layout_below="@+id/tv_Name"
+        android:layout_toRightOf="@id/imv_picture"
+        android:text="Pacific Aggregates, Inc." />
+    <TextView
+        android:id="@+id/currentStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginLeft="8dp"
+        android:layout_below="@+id/tv_Company"
+        android:layout_toRightOf="@id/imv_picture"
+        android:text="Current Status: Practical Test"/>
 
 </RelativeLayout>

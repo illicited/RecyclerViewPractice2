@@ -17,12 +17,12 @@ public class SampleData {
         studentList = new ArrayList<>();
         studentMap = new HashMap<>();
 
-        addItem(new Student(null, "Josh Cavender") );
-        addItem(new Student(null, "Reid Briley"));
-        addItem(new Student(null, "Rob Graine"));
-        addItem(new Student(null, "Brian Escalante"));
-        addItem(new Student(null, "Brandon Agles"));
-        addItem(new Student(null, "Andy Medina"));
+        addItem(new Student(null, "Josh Cavender", "Pacific Aggregates, Inc.", "josh.jpg") );
+        addItem(new Student(null, "Reid Briley", "Fenaugh Inspection", "reid.jpg"));
+        addItem(new Student(null, "Rob Graine", "Associated Ready-mix", "rob.jpg"));
+        addItem(new Student(null, "Brian Escalante", "Associated Ready-mix", "brian.jpg"));
+        addItem(new Student(null, "Brandon Agles", "Associated Ready-mix", "brandon.jpg"));
+        addItem(new Student(null, "Andy Medina", "Webcor", "andy.jpg"));
 
         }
 
