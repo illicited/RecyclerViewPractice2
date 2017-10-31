@@ -1,16 +1,13 @@
 package com.cavendersoftworks.recyclerviewpractice2.View;
 
-import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 import com.cavendersoftworks.recyclerviewpractice2.Model.SampleData;
 import com.cavendersoftworks.recyclerviewpractice2.Model.Student;
-import com.cavendersoftworks.recyclerviewpractice2.QRCodeGenerator;
 import com.cavendersoftworks.recyclerviewpractice2.R;
-import com.cavendersoftworks.recyclerviewpractice2.StudentListAdapter;
+import com.cavendersoftworks.recyclerviewpractice2.StudentListAdapterListView;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -36,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 //                this, android.R.layout.simple_list_item_1, studentNames
 //        );
 
-        StudentListAdapter sla = new StudentListAdapter(this, studentList);
+        StudentListAdapterListView sla = new StudentListAdapterListView(this, studentList);
 //        lv.setAdapter(arrayAdapter);
         ListView lv =(ListView)findViewById(R.id.lv_studentList);
         lv.setAdapter(sla);

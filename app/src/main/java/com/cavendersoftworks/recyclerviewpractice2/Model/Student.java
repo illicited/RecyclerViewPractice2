@@ -13,7 +13,7 @@ public class Student {
         imageName = img;
     }
 
-    public String getItemId() {
+    String getItemId() {
         return itemId;
     }
 
@@ -38,7 +38,7 @@ public class Student {
         return "Student{" +
                 "itemId='" + itemId + '\'' +
                 ", name='" + name + '\'' +
-                ", imageName='" + imageName + '\'' +
+                ", company='" + company + '\'' +
                 '}';
     }
 }
