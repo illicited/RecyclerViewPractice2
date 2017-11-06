@@ -5,11 +5,13 @@ public class Student {
     private String name;
     private String company;
     private String imageName;
+    private String status;
 
-    public Student(String itemId, String name, String company, String img) {
+    public Student(String itemId, String name, String company, String img, String status) {
         this.itemId = itemId;
         this.name = name;
         this.company = company;
+        this.status = status;
         imageName = img;
     }
 
@@ -21,16 +23,16 @@ public class Student {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getImageName() {
         return imageName;
     }
 
     public String getCompany() {
         return company;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     @Override
