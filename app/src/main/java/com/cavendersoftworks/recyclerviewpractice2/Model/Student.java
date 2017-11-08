@@ -1,5 +1,7 @@
 package com.cavendersoftworks.recyclerviewpractice2.Model;
 
+import java.util.UUID;
+
 public class Student {
     private String itemId;
     private String name;
@@ -8,6 +10,10 @@ public class Student {
     private String status;
 
     public Student(String itemId, String name, String company, String img, String status) {
+
+        if (itemId == null) {
+            itemId = UUID.randomUUID().toString();
+        }
         this.itemId = itemId;
         this.name = name;
         this.company = company;
@@ -15,7 +21,7 @@ public class Student {
         imageName = img;
     }
 
-    String getItemId() {
+    public String getItemId() {
         return itemId;
     }
 

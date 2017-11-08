@@ -15,32 +15,31 @@
         android:layout_centerVertical="true"/>
 
     <TextView
-        android:id="@+id/tv_Name"
-        android:layout_height="42dp"
-        android:layout_width="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@id/imv_picture"
+        android:id="@+id/tv_NameDetail"
         style="@style/Header"
-        android:text="Josh Cavender"/>
+        android:layout_toRightOf="@id/imv_picture"
+        android:layout_marginLeft="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Josh Cavender" />
 
     <TextView
-        android:id="@+id/tv_Company"
+        android:id="@+id/tv_CompanyDetail"
         android:layout_width="wrap_content"
-        android:layout_height="18dp"
-        android:layout_marginLeft="8dp"
-        android:layout_below="@+id/tv_Name"
+        android:layout_height="wrap_content"
         android:layout_toRightOf="@id/imv_picture"
-        android:layout_alignEnd="@id/tv_Name"
+        android:layout_below="@id/tv_NameDetail"
+        android:layout_marginLeft="8dp"
         android:text="Pacific Aggregates, Inc." />
+
     <TextView
         android:id="@+id/currentStatus"
         android:layout_width="wrap_content"
-        android:layout_height="18dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_CompanyDetail"
         android:layout_marginLeft="8dp"
-        android:layout_alignEnd="@id/tv_Company"
-        android:layout_below="@+id/tv_Company"
         android:layout_toRightOf="@id/imv_picture"
-        android:text="Current Status: Practical Test"/>
+        android:text="Current Status: Practical Test" />
 
 </RelativeLayout>

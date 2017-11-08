@@ -1,8 +1,8 @@
 package com.cavendersoftworks.recyclerviewpractice2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.renderscript.ScriptGroup;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,14 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cavendersoftworks.recyclerviewpractice2.Model.Student;
+import com.cavendersoftworks.recyclerviewpractice2.View.DetailActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
 public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.ViewHolder> {
+    public static final String STUDENT_ID_KEY = "student_id_key";
     private List<Student> mStudents;
     private Context context;
 
@@ -37,8 +40,8 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        Student student = mStudents.get(position);
+    public void onBindViewHolder(final ViewHolder holder, int position) {
+        final Student student = mStudents.get(position);
         String fileName = student.getImageName();
 
         try {
@@ -52,6 +55,26 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        holder.sView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(context, "You selected " + student.getName(), Toast.LENGTH_SHORT).show();
+                String studentID = student.getItemId();
+
+                Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra(STUDENT_ID_KEY, studentID);
+                context.startActivity(intent);
+            }
+        });
+
+        holder.sView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(context, "You long clicked " + student.getName(), Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
     }
 
     @Override
@@ -64,14 +87,16 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.
         public TextView tvName;
         public TextView tvCompany;
         public TextView status;
+        public View sView;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             imView = (ImageView)itemView.findViewById(R.id.imv_picture);
-            tvName = (TextView)itemView.findViewById(R.id.tv_Name);
-            tvCompany = (TextView)itemView.findViewById(R.id.tv_Company);
+            tvName = (TextView)itemView.findViewById(R.id.tv_NameDetail);
+            tvCompany = (TextView)itemView.findViewById(R.id.tv_CompanyDetail);
             status = (TextView)itemView.findViewById(R.id.currentStatus);
+            sView = itemView;
         }
     }
 

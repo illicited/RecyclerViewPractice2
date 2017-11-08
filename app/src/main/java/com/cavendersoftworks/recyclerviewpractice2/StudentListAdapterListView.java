@@ -35,8 +35,8 @@ public class StudentListAdapterListView extends ArrayAdapter<Student> {
             convertView = mInflater.inflate(R.layout.list_student, parent, false);
         }
 
-        TextView tvName = (TextView)convertView.findViewById(R.id.tv_Name);
-        TextView tvCompany = (TextView) convertView.findViewById(R.id.tv_Company);
+        TextView tvName = (TextView)convertView.findViewById(R.id.tv_NameDetail);
+        TextView tvCompany = (TextView) convertView.findViewById(R.id.tv_CompanyDetail);
         ImageView profile = (ImageView)convertView.findViewById(R.id.imv_picture);
 
         Student student = mStudents.get(position);
