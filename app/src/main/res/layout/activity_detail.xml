@@ -16,7 +16,7 @@
 
     <TextView
         android:id="@+id/tv_NameDetail"
-        style="@style/Header"
+        style="@style/header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imv_barcode"
@@ -31,6 +31,9 @@
         android:layout_centerHorizontal="true"
         android:text="Pacific Aggregates, Inc."/>
     <TextView
+        android:id="@+id/tv_StatusDetail"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tv_CompanyDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

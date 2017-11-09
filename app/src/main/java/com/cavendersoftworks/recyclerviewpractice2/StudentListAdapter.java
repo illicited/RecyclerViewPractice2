@@ -20,7 +20,8 @@ import java.io.InputStream;
 import java.util.List;
 
 public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.ViewHolder> {
-    public static final String STUDENT_ID_KEY = "student_id_key";
+    //public static final String STUDENT_ID_KEY = "student_id_key";
+    public static final String STUDENT_KEY = "student_key";
     private List<Student> mStudents;
     private Context context;
 
@@ -60,10 +61,10 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.
             @Override
             public void onClick(View v) {
                 //Toast.makeText(context, "You selected " + student.getName(), Toast.LENGTH_SHORT).show();
-                String studentID = student.getItemId();
+                //String studentID = student.getItemId();
 
                 Intent intent = new Intent(context, DetailActivity.class);
-                intent.putExtra(STUDENT_ID_KEY, studentID);
+                intent.putExtra(STUDENT_KEY, student);
                 context.startActivity(intent);
             }
         });
@@ -71,7 +72,7 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.
         holder.sView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Toast.makeText(context, "You long clicked " + student.getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Student ID is " + student.getItemId(), Toast.LENGTH_SHORT).show();
                 return false;
             }
         });

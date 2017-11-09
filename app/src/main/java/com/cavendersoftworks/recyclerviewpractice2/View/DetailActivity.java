@@ -1,12 +1,9 @@
 package com.cavendersoftworks.recyclerviewpractice2.View;
 
-import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.cavendersoftworks.recyclerviewpractice2.Model.SampleData;
 import com.cavendersoftworks.recyclerviewpractice2.Model.Student;
 import com.cavendersoftworks.recyclerviewpractice2.QRCodeGenerator;
 import com.cavendersoftworks.recyclerviewpractice2.R;
@@ -19,18 +16,19 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        String studentID = getIntent().getExtras().getString(StudentListAdapter.STUDENT_ID_KEY);
-        Student student = SampleData.studentMap.get(studentID);
+        Student student = getIntent().getExtras().getParcelable(StudentListAdapter.STUDENT_KEY);
 
 
         ImageView imView = (ImageView)findViewById(R.id.imv_barcode);
         TextView tvName = (TextView)findViewById(R.id.tv_NameDetail);
         TextView tvCompany = (TextView)findViewById(R.id.tv_CompanyDetail);
+        TextView tvStatus = (TextView)findViewById(R.id.tv_StatusDetail);
 
         QRCodeGenerator qrcode = new QRCodeGenerator(this, imView);
-        qrcode.execute(studentID);
+        qrcode.execute(student.getItemId());
         tvName.setText(student.getName());
         tvCompany.setText(student.getCompany());
+        tvStatus.setText(student.getStatus());
 
     }
 }

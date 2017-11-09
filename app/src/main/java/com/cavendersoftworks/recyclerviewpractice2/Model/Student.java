@@ -1,8 +1,11 @@
 package com.cavendersoftworks.recyclerviewpractice2.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.UUID;
 
-public class Student {
+public class Student implements Parcelable {
     private String itemId;
     private String name;
     private String company;
@@ -41,6 +44,7 @@ public class Student {
         return status;
     }
 
+
     @Override
     public String toString() {
         return "Student{" +
@@ -49,4 +53,38 @@ public class Student {
                 ", company='" + company + '\'' +
                 '}';
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.itemId);
+        dest.writeString(this.name);
+        dest.writeString(this.company);
+        dest.writeString(this.imageName);
+        dest.writeString(this.status);
+    }
+
+    protected Student(Parcel in) {
+        this.itemId = in.readString();
+        this.name = in.readString();
+        this.company = in.readString();
+        this.imageName = in.readString();
+        this.status = in.readString();
+    }
+
+    public static final Parcelable.Creator<Student> CREATOR = new Parcelable.Creator<Student>() {
+        @Override
+        public Student createFromParcel(Parcel source) {
+            return new Student(source);
+        }
+
+        @Override
+        public Student[] newArray(int size) {
+            return new Student[size];
+        }
+    };
 }

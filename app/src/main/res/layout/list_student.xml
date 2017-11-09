@@ -16,7 +16,7 @@
 
     <TextView
         android:id="@+id/tv_NameDetail"
-        style="@style/Header"
+        style="@style/header"
         android:layout_toRightOf="@id/imv_picture"
         android:layout_marginLeft="8dp"
         android:layout_width="wrap_content"
