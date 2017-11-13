@@ -11,8 +11,7 @@
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:contentDescription="qrcode"
-        android:src="@drawable/barcode" />
+        android:contentDescription="qrcode" />
 
     <TextView
         android:id="@+id/tv_NameDetail"

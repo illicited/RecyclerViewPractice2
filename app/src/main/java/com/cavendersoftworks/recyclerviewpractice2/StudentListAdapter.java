@@ -84,13 +84,13 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        public ImageView imView;
-        public TextView tvName;
-        public TextView tvCompany;
-        public TextView status;
-        public View sView;
+        private ImageView imView;
+        private TextView tvName;
+        private TextView tvCompany;
+        private TextView status;
+        private View sView;
 
-        public ViewHolder(View itemView) {
+        private ViewHolder(View itemView) {
             super(itemView);
 
             imView = (ImageView)itemView.findViewById(R.id.imv_picture);

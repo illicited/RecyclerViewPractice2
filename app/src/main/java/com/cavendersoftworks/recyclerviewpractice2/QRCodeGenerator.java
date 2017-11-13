@@ -1,10 +1,13 @@
 package com.cavendersoftworks.recyclerviewpractice2;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.widget.ImageView;
 
+import com.cavendersoftworks.recyclerviewpractice2.View.MainActivity;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
@@ -13,12 +16,21 @@ import com.google.zxing.common.BitMatrix;
 
 public class QRCodeGenerator extends AsyncTask<String, Void, Bitmap> {
 
+    ProgressDialog dialog;
+
     private ImageView imv = null;
     private Context context = null;
 
     public QRCodeGenerator(Context context, ImageView imv) {
         this.context = context;
         this.imv = imv;
+        dialog = new ProgressDialog(context);
+    }
+
+    @Override
+    protected void onPreExecute() {
+        this.dialog.setMessage("Loading..");
+        this.dialog.show();
     }
 
     @Override
@@ -60,5 +72,8 @@ public class QRCodeGenerator extends AsyncTask<String, Void, Bitmap> {
     @Override
     protected void onPostExecute(Bitmap bitmap) {
         imv.setImageBitmap(bitmap);
+        if (dialog.isShowing()) {
+            dialog.dismiss();
+        }
     }
 }
