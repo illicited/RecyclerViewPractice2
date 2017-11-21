@@ -3,6 +3,7 @@ package com.cavendersoftworks.recyclerviewpractice2.View;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
@@ -95,8 +96,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
 
-        SharedPreferences prefs = getSharedPreferences(MainActivity.MY_GLOBAL_PREFS, MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences("persistentData", MODE_PRIVATE);
         String email = prefs.getString(EMAIL_KEY, "");
+
 
         if (!TextUtils.isEmpty(email)) {
             mEmailView.setText(email);
@@ -355,6 +357,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
+                Intent returnIntent = new Intent();
+                returnIntent.putExtra(EMAIL_KEY, mEmail);
+                setResult(LoginActivity.RESULT_OK, returnIntent);
                 finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
@@ -368,5 +373,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
         }
     }
+
 }
 

@@ -8,7 +8,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.Toast;
+
 import com.cavendersoftworks.recyclerviewpractice2.Model.SampleData;
 import com.cavendersoftworks.recyclerviewpractice2.Model.Student;
 import com.cavendersoftworks.recyclerviewpractice2.R;
@@ -19,7 +21,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final int SIGNIN_REQUEST = 1001;
-    public static final String MY_GLOBAL_PREFS = "";
+
     List<Student> studentList = SampleData.studentList;
 
     @Override
@@ -58,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             String email = data.getStringExtra(LoginActivity.EMAIL_KEY);
             Toast.makeText(this, "You logged in as " + email, Toast.LENGTH_SHORT).show();
 
-            SharedPreferences.Editor spEditor = getSharedPreferences(MY_GLOBAL_PREFS, MODE_PRIVATE).edit();
+            SharedPreferences.Editor spEditor = getSharedPreferences("persistentData", MODE_PRIVATE).edit();
             spEditor.putString(LoginActivity.EMAIL_KEY, email);
             spEditor.apply();
         }

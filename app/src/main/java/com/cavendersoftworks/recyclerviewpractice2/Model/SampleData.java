@@ -1,7 +1,5 @@
 package com.cavendersoftworks.recyclerviewpractice2.Model;
 
-import android.graphics.Bitmap;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,7 +7,6 @@ import java.util.Map;
 
 public class SampleData {
     public static List<Student> studentList;
-    public static List<Bitmap> studentQRCodes;
 
     public static Map<String, Student> studentMap;
 
