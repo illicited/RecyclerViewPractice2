@@ -3,14 +3,13 @@ package com.cavendersoftworks.recyclerviewpractice2.View;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
 import android.widget.Toast;
-
 import com.cavendersoftworks.recyclerviewpractice2.Model.SampleData;
 import com.cavendersoftworks.recyclerviewpractice2.Model.Student;
 import com.cavendersoftworks.recyclerviewpractice2.R;
@@ -78,6 +77,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.signin_action :
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivityForResult(intent, SIGNIN_REQUEST);
+                return true;
+            case R.id.settings_action :
+                Intent settingsIntent = new Intent(this, SettingsActivity.class);
+                startActivity(settingsIntent);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

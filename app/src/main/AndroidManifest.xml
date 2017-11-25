@@ -26,11 +26,19 @@
             android:parentActivityName=".View.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".View.MainActivity"></meta-data>
+                android:value=".View.MainActivity" />
         </activity>
         <activity
             android:name=".View.LoginActivity"
             android:label="@string/title_activity_login"
+            android:parentActivityName=".View.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.cavendersoftworks.recyclerviewpractice2.View.MainActivity" />
+        </activity>
+        <activity
+            android:name=".View.SettingsActivity"
+            android:label="@string/title_activity_settings"
             android:parentActivityName=".View.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
